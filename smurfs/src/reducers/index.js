@@ -2,10 +2,9 @@ import {
     FETCH_SMURFS_START,
     FETCH_SMURFS_FAILURE,
     FETCH_SMURFS_SUCCESS,
-    CREATE_SMURFS_START,
-    CREATE_SMURFS_FAILURE,
-    CREATE_SMURFS_SUCCESS,
-    ADD_SMURF
+    CREATE_SMURF_START,
+    CREATE_SMURF_FAILURE,
+    CREATE_SMURF_SUCCESS,
 } from '../actions';
 
 export const initialState = {
@@ -21,20 +20,20 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     console.log(action);
     switch (action.type) {
-        case 'FETCH_SMURFS_START':
+        case FETCH_SMURFS_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case 'FETCH_SMURFS_SUCCESS':
+        case FETCH_SMURFS_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 smurfsData: action.payload,
                 error: ''
             }
-        case 'ADD_SMURF':
+        case CREATE_SMURF_START:
             const newSmurf = {
                 name: action.payload,
                 age: action.payload,
@@ -44,6 +43,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 smurfsData: [...state.smurfsData, newSmurf]
+            }
+        case CREATE_SMURF_FAILURE:
+            return {
+                ...state,
+                error: ''
             }
         default:
             return state;

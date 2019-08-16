@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const FETCH_SMURFS_START = 'FETCH_SMURFS';
+export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
 export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS';
 export const FETCH_SMURFS_FAILURE = 'FETCH_SMURFS_FAILURE';
 
@@ -20,7 +20,7 @@ export const getData = () => {
     };
 };
 
-export const CREATE_SMURF_START = 'CREATE_SMURFS';
+export const CREATE_SMURF_START = 'CREATE_SMURF_START';
 export const CREATE_SMURF_SUCCESS = 'CREATE_SMURF_SUCCESS';
 export const CREATE_SMURF_FAILURE = 'CREATE_SMURF_FAILURE';
 
@@ -40,13 +40,13 @@ export const createSmurf = () => {
     };
 };
 
-export const ADD_SMURF = 'ADD_SMURF';
+// export const ADD_SMURF = 'ADD_SMURF';
 
-export const addSmurf = smurf => {
-    return dispatch => {
-        dispatch({
-            type: ADD_SMURF,
-            payload: smurf
-        })
-    };
-};
+// export const addSmurf = smurf => {
+//     return dispatch => {
+//         dispatch({
+//             type: ADD_SMURF,
+//             payload: smurf
+//         })
+//     };
+// };

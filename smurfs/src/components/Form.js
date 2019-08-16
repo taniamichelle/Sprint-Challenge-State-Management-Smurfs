@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { createSmurf } from '../actions';
 
-const Form = ({ addSmurf, props }) => {
-    // console.log(props);
-    const [smurf, setSmurf] = useState();
+const Form = ({ createSmurf }) => {
+    const [smurf, setSmurf] = useState({
+        name: '',
+        age: '',
+        height: '',
+    });
 
     const handleChange = e => {
         setSmurf(e.target.value);
@@ -12,7 +15,7 @@ const Form = ({ addSmurf, props }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        addSmurf(smurf);
+        createSmurf(smurf);
         setSmurf('');
     };
 
@@ -20,7 +23,7 @@ const Form = ({ addSmurf, props }) => {
         <div className="Form">
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                    <legend>Add Smurf</legend>
+                    <legend>Create a Smurf</legend>
                     <div className='nameField'>
                         <label>
                             Name
@@ -28,7 +31,7 @@ const Form = ({ addSmurf, props }) => {
                                 name='name'
                                 type='text'
                                 placeholder='Enter name'
-                                value={props.name}
+                                value={smurf.name}
                                 onChange={handleChange}
                             />
                         </label>
@@ -40,7 +43,7 @@ const Form = ({ addSmurf, props }) => {
                                 name='age'
                                 type='age'
                                 placeholder='Enter age'
-                                value={props.age}
+                                value={smurf.age}
                                 onChange={handleChange}
                             />
                         </label>
@@ -52,13 +55,12 @@ const Form = ({ addSmurf, props }) => {
                                 name='height'
                                 type='text'
                                 placeholder='Enter height'
-                                value={props.height}
+                                value={smurf.height}
                                 onChange={handleChange}
                             />
                         </label>
                     </div>
-                    <button onClick={props.addSmurf} className="add-smurf-button">'Add Smurf'</button>
-                    {props.smurfsData}
+                    <button onClick={createSmurf} className="create-smurf-button">Create Smurf</button>
                 </fieldset>
             </form>
         </div>
@@ -71,5 +73,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addSmurf })(Form);
+export default connect(mapStateToProps, { createSmurf })(Form);
 

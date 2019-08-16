@@ -10,10 +10,10 @@ const SmurfList = props => {
             <button className='get-data-btn'
                 onClick={props.getData}>
                 {props.isLoading ? (
-                    <Loader type='oval'
+                    <Loader type='Oval'
                         color='#00BFFF'
-                        height="20"
-                        width='20' />
+                        height={20}
+                        width={20} />
                 ) : (
                         'See Smurfs'
                     )}
