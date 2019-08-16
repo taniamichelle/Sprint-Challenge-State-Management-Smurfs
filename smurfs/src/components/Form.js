@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf } from '../actions';
 
-const Form = ({ addSmurf }) => {
+const Form = ({ addSmurf, props }) => {
     // console.log(props);
     const [smurf, setSmurf] = useState();
 
@@ -28,7 +28,7 @@ const Form = ({ addSmurf }) => {
                                 name='name'
                                 type='text'
                                 placeholder='Enter name'
-                                value={smurf.name}
+                                value={props.name}
                                 onChange={handleChange}
                             />
                         </label>
@@ -40,7 +40,7 @@ const Form = ({ addSmurf }) => {
                                 name='age'
                                 type='age'
                                 placeholder='Enter age'
-                                value={smurf.age}
+                                value={props.age}
                                 onChange={handleChange}
                             />
                         </label>
@@ -52,12 +52,13 @@ const Form = ({ addSmurf }) => {
                                 name='height'
                                 type='text'
                                 placeholder='Enter height'
-                                value={smurf.height}
+                                value={props.height}
                                 onChange={handleChange}
                             />
                         </label>
                     </div>
-                    <button type='submit'>Add Smurf</button>
+                    <button onClick={props.addSmurf} className="add-smurf-button">'Add Smurf'</button>
+                    {props.smurfsData}
                 </fieldset>
             </form>
         </div>

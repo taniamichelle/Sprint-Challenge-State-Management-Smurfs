@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <h1>Welcome to the Smurfs Characters Page!</h1>
       <div className='form'>
-        <Form />
+        {/* <Form /> */}
       </div>
       <div className='smurf-list'>
         <SmurfList />

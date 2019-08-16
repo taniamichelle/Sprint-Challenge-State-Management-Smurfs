@@ -6,8 +6,7 @@ import { getData } from '../actions';
 
 const SmurfList = props => {
     return (
-        <div className='houses-list-container'>
-            <div className='title'>Welcome to Smurfs Characters!</div>
+        <div className='smurfs-list-container'>
             <button className='get-data-btn'
                 onClick={props.getData}>
                 {props.isLoading ? (
@@ -32,3 +31,8 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { getData })(SmurfList);
+
+
+
+
+
