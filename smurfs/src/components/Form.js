@@ -26,7 +26,7 @@ const Form = ({ createSmurf }) => {
                     <legend>Create a Smurf</legend>
                     <div className='nameField'>
                         <label>
-                            Name
+                            Name:
                             <input
                                 name='name'
                                 type='text'
@@ -38,7 +38,7 @@ const Form = ({ createSmurf }) => {
                     </div>
                     <div className='ageField'>
                         <label>
-                            Age
+                            Age:
                             <input
                                 name='age'
                                 type='age'
@@ -50,7 +50,7 @@ const Form = ({ createSmurf }) => {
                     </div>
                     <div className='roleField'>
                         <label>
-                            Height
+                            Height:
                             <input
                                 name='height'
                                 type='text'
@@ -69,7 +69,7 @@ const Form = ({ createSmurf }) => {
 
 const mapStateToProps = state => {
     return {
-        smurfsData: state.smurfsData,
+        smurfsData: state.smurfsData
     }
 }
 

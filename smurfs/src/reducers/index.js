@@ -42,11 +42,12 @@ export const reducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-                smurfsData: [...state.smurfsData, newSmurf]
+                smurfsData: [newSmurf]
             }
         case CREATE_SMURF_FAILURE:
             return {
                 ...state,
+                isLoading: true,
                 error: ''
             }
         default:
