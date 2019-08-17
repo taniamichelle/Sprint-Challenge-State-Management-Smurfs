@@ -9,6 +9,7 @@ import {
 
 export const initialState = {
     smurfsData: [
+        // { name: '', age: '', height: '' }
         // { name: 'Papa', age: 870, height: '5.5cm', id: '00' },
         // { name: 'Smurfette', age: 190, height: '4.6cm', id: '1' },
         // { name: 'Vanity', age: 220, height: '4.9cm', id: '2' },
@@ -34,20 +35,17 @@ export const reducer = (state = initialState, action) => {
                 error: ''
             }
         case CREATE_SMURF_START:
-            const newSmurf = {
-                name: action.payload,
-                age: action.payload,
-                height: action.payload,
-                id: Date.now(),
-            };
             return {
                 ...state,
-                smurfsData: [newSmurf]
+            }
+        case CREATE_SMURF_SUCCESS:
+            return {
+                ...state,
+                smurfsData: action.payload
             }
         case CREATE_SMURF_FAILURE:
             return {
                 ...state,
-                isLoading: true,
                 error: ''
             }
         default:

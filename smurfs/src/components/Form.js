@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import { createSmurf } from '../actions';
 
 const Form = ({ createSmurf }) => {
+
     const [smurf, setSmurf] = useState({
-        name: '',
-        age: '',
-        height: '',
+        smurf: {
+            name: '',
+            age: '',
+            height: ''
+        }
     });
 
     const handleChange = e => {
-        setSmurf(e.target.value);
+        setSmurf({ ...smurf, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = e => {
@@ -41,7 +44,7 @@ const Form = ({ createSmurf }) => {
                             Age:
                             <input
                                 name='age'
-                                type='age'
+                                type='text'
                                 placeholder='Enter age'
                                 value={smurf.age}
                                 onChange={handleChange}
@@ -60,7 +63,7 @@ const Form = ({ createSmurf }) => {
                             />
                         </label>
                     </div>
-                    <button onClick={createSmurf} className="create-smurf-button">Create Smurf</button>
+                    <button onClick={createSmurf} className="create-smurf-button" >Create Smurf</button>
                 </fieldset>
             </form>
         </div>
